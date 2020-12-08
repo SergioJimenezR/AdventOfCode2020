@@ -37,15 +37,15 @@ public class parse {
 	}
 
 	public static int countString(String string, String substring) {
-		
+
 		/* int count = 0;
 		 * for (int i = 0; i < string.length(); i++)
-		 * 	if (string.charAt(i) == substring.charAt(0))
-		 * 		count++;
+		 *	if (string.charAt(i) == substring.charAt(0))
+		 *		count++;
 		 */
-		
+
 		int count = string.length() - string.replace(substring, "").length();
-		
+
 		return count;
 	}
 
