@@ -48,5 +48,10 @@ public class parse {
 
 		return count;
 	}
+	
+	public static void copy(String[] from, String[] to) {
+		for(int i = 0; i < from.length; i++)
+			to[i] = from[i];
+	}
 
 }
