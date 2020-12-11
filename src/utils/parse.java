@@ -48,37 +48,31 @@ public class parse {
 			to[i] = from[i];
 	}
 
-	public static boolean isBetween(int n, int min, int max) {
-		return min <= n && n <= max;
+	public static String fromIntToBin(int decimal) {
+		String bin = "";
+		for (; decimal >= 2; decimal /= 2)
+			bin = decimal % 2 + bin;
+		return decimal + bin;
 	}
 
-	public static boolean isHexadecimal(char h) {
-		return isBetween((int) h, 48, 57) || isBetween((int) h, 97, 102);
+	public static int fromBinToInt(String bin) {
+		int decimal = 0;
+
+		for (int i = 0; i < bin.length(); i++)
+			if (bin.charAt(bin.length() - 1 - i) == '1')
+				decimal += Math.pow(2, i);
+
+		return decimal;
 	}
 
-	public static boolean isRGB(String hexa) {
-		hexa = hexa.toUpperCase();
-		if (hexa.charAt(0) == '#') {
-			for (int i = 1; i < hexa.length(); i++)
-				if (!isHexadecimal(hexa.charAt(i)))
-					return false;
-		} else
-			return false;
-		return true;
-	}
-
-	public static boolean contains(Object[] a, Object b) {
-		for (int i = 0; i < a.length; i++)
-			if (a[i].equals(b))
-				return true;
-		return false;
-	}
-
-	public static boolean allNumbers(String s) {
-		for (int i = 0; i < s.length(); i++)
-			if (!isBetween((int) s.charAt(i), 48, 57))
-				return false;
-		return true;
+	public static int fromStringBinToInt(String S, char equals1, char equals0) {
+		String R = "";
+		for (int i = 0; i < S.length(); i++)
+			if (S.charAt(i) == equals1)
+				R += "1";
+			else
+				R += "0";
+		return fromBinToInt(R);
 	}
 
 }
