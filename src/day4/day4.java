@@ -26,7 +26,6 @@ public class day4 {
 	}
 
 	public static boolean isValid1(ArrayList<String> passport) {
-		String forEcl[] = { "amb", "blu", "brn", "gry", "grn", "hzl", "oth" };
 
 		int count = 0;
 		for (int i = 0; i < passport.size(); i++) {
